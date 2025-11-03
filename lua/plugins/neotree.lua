@@ -62,8 +62,8 @@ return {
             line_spacing = 4,  -- Default is 0; Increase to add spacing
             border = { "", "", "", "┃┃" }, -- Only right border
          }
-         vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#0D1117" }) -- Change to your preferred color
-         vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#8A8A8A" }) -- Adjust the color as needed
+         -- vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#0D1117" }) -- Change to your preferred color
+         -- vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#8A8A8A" }) -- Adjust the color as needed
 
          -- Set the folder icon color to blue
          vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#4A90E2" }) -- Adjust blue shade as needed

@@ -31,23 +31,16 @@ return {
       "Pocco81/auto-save.nvim",
       config = function()
          require("auto-save").setup {
-            -- your config goes here
-            -- or just leave it empty :)
-            --     callbacks = {
-            --       -- Run :FixWhitespace before saving
-            --       before_saving = function()
-            --         vim.cmd('FixWhitespace')
-            --       end,
-            --       after_saving = function()
-            --         vim.cmd('FixWhitespace')
-            --       end,
-            --     },
+            execution_message = {
+               message = function() return "" end, -- disables the notification
+               dim = 0,
+               cleaning_interval = 0,
+            },
          }
       end,
    },
 
    -- handle trailing whitespace
-   -- { 'bronson/vim-trailing-whitespace' },
    {
       'ntpeters/vim-better-whitespace',
       config = function ()

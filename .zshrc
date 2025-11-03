@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $add $GOPATH/bin to your PATHPATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -118,7 +118,10 @@ export PATH=${PATH}:/usr/local/mysql/bin/
 export PATH="/usr/local/sbin:$PATH"
 
 #Java
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+
+#jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 #Docker
 export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin
@@ -145,6 +148,8 @@ eval "$(pyenv init -)"
 #MongoDB
 export PATH=${PATH}:"/usr/local/Cellar/mongodb-community@4.4/4.4.16/bin"
 
+# Golang
+export PATH=$(go env GOPATH)/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -163,6 +168,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#
+# Kafka
+export PATH="$(brew --prefix kafka)/bin:$PATH"
 
 # alias
 alias vim=nvim

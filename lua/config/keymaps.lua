@@ -16,6 +16,9 @@ keymap.set('n', '0', '^', { noremap = true, silent = true })
 keymap.set('n', '-', '$', { noremap = true, silent = true })
 keymap.set('v', '-', '$', { noremap = true, silent = true })
 
+-- Show warnings and errors
+keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
+
 --Neotree
 keymap.set('n', '<C-t>', '<cmd>Neotree toggle<cr>')
 keymap.set('n', '<C-f>', '<cmd>Neotree reveal<cr>')
@@ -23,6 +26,9 @@ keymap.set('n', '<C-f>', '<cmd>Neotree reveal<cr>')
 -- Fzf
 keymap.set('n', '<C-q>', ':Rg<CR>', { noremap = true, silent = true })
 keymap.set('n', '<C-p>', ':Files<CR>', { noremap = true, silent = true })
+
+-- Copilot Chat
+keymap.set("n", "q", "<cmd>CopilotChat<CR>", { remap = true, desc = "Open CopilotChat" })
 
 -- Select all
 keymap.set('n', '<C-a>', 'gg0vG$')
@@ -120,12 +126,14 @@ vim.api.nvim_set_keymap('v', '<Right>', '<NOP>', { noremap = true, silent = true
 
 -- run file using Dispatch
 vim.keymap.set("n", "<leader>rf", function()
-  local extension = vim.fn.expand("%:e")
-  if extension == "rb" then
-    -- Open a horizontal split and run the Ruby file in a terminal
-    vim.cmd("Dispatch bundle exec ruby " .. vim.fn.expand("%"))
-
-  else
-    print("." .. extension .. "is not a supported file!")
-  end
+   local extension = vim.fn.expand("%:e")
+   if extension == "rb" then
+      -- Open a horizontal split and run the Ruby file in a terminal
+      vim.cmd("Dispatch bundle exec ruby " .. vim.fn.expand("%"))
+   elseif extension == "go" then
+      -- Open a horizontal split and run the Ruby file in a terminal
+      vim.cmd("Dispatch go run " .. vim.fn.expand("%"))
+   else
+      print("." .. extension .. " is not a supported file!")
+   end
 end, { desc = "Run language-supported file" })
