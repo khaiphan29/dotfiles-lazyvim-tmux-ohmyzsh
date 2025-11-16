@@ -6,6 +6,10 @@ return {
       opts = {
          endwise = { enable = true },
          indent = { enable = true, disable = { "yaml", "ruby" } },
+         highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = { "sql" },
+         },
          ensure_installed = {
             "bash",
             "go",
@@ -23,6 +27,7 @@ return {
             "typescript",
             "vim",
             "yaml",
+            "sql",
          },
       },
    },
@@ -49,5 +54,5 @@ return {
    { 'tpope/vim-rails' },
 
    -- Haml, Sass, SCSS
-   { 'tpope/vim-haml' }
+   { 'tpope/vim-haml' },
 }
