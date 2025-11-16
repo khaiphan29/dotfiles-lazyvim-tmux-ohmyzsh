@@ -5,7 +5,7 @@ return {
       dependencies = { "RRethy/nvim-treesitter-endwise" },
       opts = {
          endwise = { enable = true },
-         indent = { enable = true, disable = { "yaml", "ruby" } },
+         indent = { enable = true, disable = { "yaml", "ruby", "sql" } },
          highlight = {
             enable = true,
             additional_vim_regex_highlighting = { "sql" },
